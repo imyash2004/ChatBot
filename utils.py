@@ -19,10 +19,15 @@ def load_gemini_pro_model():
     return gemini_pro_model
 
 
-def gemini_pro_vision_response(prompt,image):
-    gemini_pro_vision_model=genai.GenerativeModel("gemini-pro-vision")
-    response=gemini_pro_vision_model.generate_content([prompt,image])
-    result=response.text
+# def gemini_pro_vision_response(prompt,image):
+#     gemini_pro_vision_model=genai.GenerativeModel("gemini-pro-vision")
+#     response=gemini_pro_vision_model.generate_content([prompt,image])
+#     result=response.text
+#     return result
+def gemini_pro_vision_response(prompt, image):
+    gemini_model = genai.GenerativeModel("gemini-1.5-pro")  # Updated to newer model
+    response = gemini_model.generate_content([prompt, image])
+    result = response.text
     return result
 
 
@@ -71,6 +76,11 @@ def get_transcript(video_id, lang='en'):
         print(f"An error occurred: {e}")
         return None
 
+
+
+# def match_resume(resumes,job_desc):
+#     resume_files=[]
+#     for
 
 
 

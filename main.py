@@ -4,6 +4,8 @@ import streamlit as st
 import os
 import streamlit_option_menu
 from PIL import Image
+# from google.generativeai import gemini_1_5_flash_model  # Assuming this is the correct import
+
 
 from utils import load_gemini_pro_model, gemini_pro_vision_response, embedding_model_response, transcript_video_text
 
@@ -42,7 +44,7 @@ if selected == "CHATBOT":
         with st.chat_message(role_for_streamlit(message.role)):
             st.markdown(message.parts[0].text)
 
-    prompt = st.chat_input("Ask Gemini Pro...")
+    prompt = st.chat_input("Yash here. Ask me anything...")
 
     if prompt:
         st.chat_message("user").markdown(prompt)
@@ -112,3 +114,15 @@ if selected == "UTUBE TRANSCRIBER":
             response = model.generate_content(prompt + transcript_text)
             st.write("#####Detailed Notes")
             st.markdown(response.text)
+
+
+# if selected=="RESUME MATCHER":
+#     st.title("Resume matcher")
+
+#     resumes=st.file_uploader("Upload Multiple resumes..",type=["docx","pdf"],accept_multiple_files=True)
+
+#     job_desc=st.text_input("Enter job description")
+#     if st.button("Match"):
+
+
+
